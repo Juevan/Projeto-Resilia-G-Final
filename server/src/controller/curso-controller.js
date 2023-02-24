@@ -1,6 +1,7 @@
 import CursoDAO from "../DAO/cursoDAO.js";
 
 export default class CursoController {
+    // função com os métodos de requisição que recebem como callback as funções que estão importando os métodos do CRUD do banco de dados direto da classe CusoDAO no arquivo cursoDAO.js
     static async rotas(app) {
         app.get('/curso', CursoController.listarCursos);
         app.get('/curso/:id', CursoController.listarCursosId);
