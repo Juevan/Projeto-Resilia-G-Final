@@ -1,33 +1,66 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background-image: linear-gradient(to right top, #081b2e, #091725, #07121c, #050c13, #030405);
-  color: #fff; 
-  height: 100%;
+
+body {
+  background-color: #081b2e;
+  color: #fff;
 }
-.formAPI, .listagem{
+
+/* Rotas para as entidades */
+
+.rotas {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 12rem;
+  gap: 6rem;
+}
+
+.rotas ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+}
+.rotas ul li{
+  margin-bottom: 4rem;
+}
+.rotas ul a {
+  border: 2px solid #fff;
+  padding: 2rem;
+  background-color: #ffff;
+  text-decoration: none;
+  color: #030405;
+}
+
+/* Fim das rotas para as entidades */
+
+/* ROTA PARA ENTIDADE CURSO */
+.formAPI,
+.listagem {
   margin-top: 4rem;
-  height: auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   gap: 2.5rem;
 }
 
-.formAPI form{
+.formAPI form {
   width: 20rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.formAPI form input{
+
+.formAPI form input {
   padding: .6rem;
 }
-.formAPI form textarea{
+
+.formAPI form textarea {
   padding: .6rem;
   max-height: 12rem;
   min-height: 12rem;
@@ -35,28 +68,38 @@ body{
   min-width: 20.1rem;
 }
 
-.listaMap{
+.listaMap {
   display: flex;
   justify-content: center;
   gap: 2.5rem;
   flex-wrap: wrap;
   margin-bottom: 5rem;
 }
-.listagem p:nth-child(2){
+
+.listagem p:nth-child(2) {
   font-size: 1.3rem;
 }
-.listagem div{
+
+.listagem div {
   display: flex;
   gap: .5rem;
 }
-.cursosMap{
+
+.listagem button a,
+.formAPI button a {
+  text-decoration: none;
+  color: #030405;
+}
+
+.cursosMap {
   display: flex;
   flex-direction: column;
   list-style: none;
   gap: .5rem;
   width: 20rem;
 }
-.cardMap{
+
+.cardMap {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -64,15 +107,19 @@ body{
   border: 1px solid #fff;
   gap: 1.8rem;
 }
-.cardMap div{
+
+.cardMap div {
   display: flex;
   justify-content: center;
   gap: .5rem;
 }
-.cardMap:hover{
+
+.cardMap:hover {
   transform: scale(1.1);
   transition: all ease-in-out .2s;
 }
+
+/* FIM DA ROTA PARA ENTIDADE CURSO */
 
 /* Modal */
 
@@ -96,26 +143,29 @@ body{
   justify-content: center;
   align-items: center;
   gap: 1.9rem;
-  background-image: linear-gradient(to right top, #081b2e, #091725, #07121c, #050c13, #030405);;
+  background-image: linear-gradient(to right top, #081b2e, #091725, #07121c, #050c13, #030405);
+  ;
   color: white;
   padding: 2rem;
-  border-radius: 6px ;
+  border-radius: 6px;
   border: 1px solid #fff;
   transform: translateY(2.8rem);
 }
 
-.formEditar{
+.formEditar {
   display: flex;
   flex-direction: column;
   width: 20.2rem;
   gap: .4rem;
   padding: 1rem;
 }
-.formEditar input{
+
+.formEditar input {
   width: 100%;
   padding: .4rem;
 }
-.formEditar textarea{
+
+.formEditar textarea {
   max-height: 9rem;
   min-height: 9rem;
   max-width: 18.2rem;
