@@ -1,28 +1,39 @@
 import { Link } from "react-router-dom";
 import '../App.css';
+import Navbar from "../../view/components/Navbar";
 
 export default function Rotas() {
 
     return (
-        <div className='rotas'>
+        <div className=''>
+        
+        <Navbar />
+
+        <div className="rotas">
+            
+
             <h1>ENTIDADES</h1>
             <ul>
                 <li>
                     <Link to='/cursos'>Cursos</Link>
                 </li>
                 <li>
-                    <Link to='/materia'>Matéria</Link>
+                    <Link>Matéria</Link>
                 </li>
                 <li>
-                    <Link to='/professor'>Professor</Link>
+                    <Link>Professor</Link>
                 </li>
                 <li>
-                    <Link to='/turma'>Turma</Link>
+                    <Link>Turma</Link>
                 </li>
                 <li>
-                    <Link to='aluno'>Aluno</Link>
+                    <Link>Aluno</Link>
                 </li>
             </ul>
+        </div>
+          
+        
+            
         </div>
     )
 }

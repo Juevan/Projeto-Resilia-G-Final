@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ListaCursos from '../components/ListaCursos.jsx';
 import { useEffect, useState } from 'react';
+import Navbar from "../../view/components/Navbar";
 
 export default function Cursos() {
 
@@ -27,7 +28,9 @@ export default function Cursos() {
     }
 
     return (
-        <div className='listagem'>
+        <div>
+        <Navbar/>
+            <div className='listagem'>
             <h1>Nossos Cursos</h1>
             <p>A instituição de ensino FiqueRico oferece os melhores cursos na área de tecnologia.<br />Se capacite e construa sua carreira nesse mercado em constante expansão!</p>
             <div>
@@ -43,5 +46,7 @@ export default function Cursos() {
             </p>
 
         </div>
+        </div>
+        
     )
 }
