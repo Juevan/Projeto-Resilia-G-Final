@@ -91,7 +91,7 @@ body {
   color: #030405;
 }
 
-.cursosMap {
+.styleMap {
   display: flex;
   flex-direction: column;
   list-style: none;

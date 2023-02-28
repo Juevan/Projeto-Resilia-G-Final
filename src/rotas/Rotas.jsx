@@ -11,16 +11,16 @@ export default function Rotas() {
                     <Link to='/cursos'>Cursos</Link>
                 </li>
                 <li>
-                    <Link>Matéria</Link>
+                    <Link to='/materia'>Matéria</Link>
                 </li>
                 <li>
-                    <Link>Professor</Link>
+                    <Link to='/professor'>Professor</Link>
                 </li>
                 <li>
-                    <Link>Turma</Link>
+                    <Link to='/turma'>Turma</Link>
                 </li>
                 <li>
-                    <Link>Aluno</Link>
+                    <Link to='aluno'>Aluno</Link>
                 </li>
             </ul>
         </div>
