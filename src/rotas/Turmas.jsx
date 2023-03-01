@@ -6,18 +6,18 @@ import { useEffect, useState } from 'react';
 
 export default function turmas() {
 
-    const [turmas, setturmas] = useState([]);
+    const [turmas, setTurmas] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3000/turma').then((e) => setturmas(e.data))
+        axios.get('http://localhost:3000/turma').then((e) => setTurmas(e.data))
     }, [])
 
-    const [getturmaId, setGetturmaId] = useState([]);
+    const [getTurmaId, setGetTurmaId] = useState([]);
     useEffect(() => {
-       axios.get(`http://localhost:3000/turma/${turmaId}`).then((e) => setGetturmaId(e.data));
+       axios.get(`http://localhost:3000/turma/${getTurmaId}`).then((e) => setGetTurmaId(e.data));
     }, []);
     
     const [busca, setBusca] = useState(false);
-    const [turmaId, setturmaId] = useState('')
+    const [turmaId, setTurmaId] = useState('')
 
     const buscar = (e) => {
         e.preventDefault()
@@ -26,17 +26,18 @@ export default function turmas() {
 
     return (
         <div className='listagem'>
-            <h1>Nossos turmas</h1>
-            <p>A instituição de ensino FiqueRico oferece os melhores turmas na área de tecnologia.<br />Se capacite e construa sua carreira nesse mercado em constante expansão!</p>
+            <h1>Turmas</h1>
+            <p>Algumas de nossas turmas:</p>
             <div>
+                <button><Link to='/'>Rotas</Link></button>
                 <button> <Link to='/cadastrodeturma'>Adicionar turmas</Link></button>
                 <form action="" onSubmit={buscar}>
-                    <input type='text' name='busca' required placeholder='Digite o ID do turma...' value={turmaId} onChange={e => setturmaId(e.target.value)} />
+                    <input type='text' name='busca' required placeholder='Digite o ID do turma...' value={turmaId} onChange={e => setTurmaId(e.target.value)} />
                     <input type="submit" value="Buscar" />
                 </form>
             </div>
             <p className='listaMap'>
-                {busca === false ? turmas.map((e) => (<ListaTurma id={e.id} nome={e.nome} modulos={e.modulos} turmas={e.qtdDeTurmas} cargaHoraria={e.cargaHoraria} descricao={e.descricao} />)) : <ListaTurma id={getturmaId.id} nome={getturmaId.nome} modulos={getturmaId.modulos} turmas={getturmaId.qtdDeTurmas} cargaHoraria={getturmaId.cargaHoraria} descricao={getturmaId.descricao} />}
+                {busca === false ? turmas.map((e) => (<ListaTurma id={e.id} alunos={e.alunos} turno={e.turno} professor={e.professor} />)) : <ListaTurma id={getTurmaId.id} alunos={getTurmaId.alunos} turno={getTurmaId.turno} professor={getTurmaId.professor}/>}
             </p>
             
         </div>

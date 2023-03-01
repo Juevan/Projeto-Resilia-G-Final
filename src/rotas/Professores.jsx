@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 
 export default function professors() {
 
-    const [professors, setprofessors] = useState([]);
+    const [professores, setprofessores] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3000/professor').then((e) => setprofessors(e.data))
+        axios.get('http://localhost:3000/professor').then((e) => setprofessores(e.data))
     }, [])
 
     const [getprofessorId, setGetprofessorId] = useState([]);
@@ -26,17 +26,18 @@ export default function professors() {
 
     return (
         <div className='listagem'>
-            <h1>Nossos professors</h1>
-            <p>A instituição de ensino FiqueRico oferece os melhores professors na área de tecnologia.<br />Se capacite e construa sua carreira nesse mercado em constante expansão!</p>
+            <h1>Professores</h1>
+            <p>Nosso time de professores:</p>
             <div>
-                <button> <Link to='/cadastrodeprofessor'>Adicionar professors</Link></button>
+                <button><Link to='/'>Rotas</Link></button>
+                <button> <Link to='/cadastrodeprofessor'>Adicionar professor</Link></button>
                 <form action="" onSubmit={buscar}>
                     <input type='text' name='busca' required placeholder='Digite o ID do professor...' value={professorId} onChange={e => setprofessorId(e.target.value)} />
                     <input type="submit" value="Buscar" />
                 </form>
             </div>
             <p className='listaMap'>
-                {busca === false ? professors.map((e) => (<ListaProfessor id={e.id} nome={e.nome} modulos={e.modulos} turmas={e.qtdDeTurmas} cargaHoraria={e.cargaHoraria} descricao={e.descricao} />)) : <Listaprofessors id={getprofessorId.id} nome={getprofessorId.nome} modulos={getprofessorId.modulos} turmas={getprofessorId.qtdDeTurmas} cargaHoraria={getprofessorId.cargaHoraria} descricao={getprofessorId.descricao} />}
+                {busca === false ? professores.map((e) => (<ListaProfessor id={e.id} nome={e.nome} matricula={e.matricula} telefone={e.telefone} endereco={e.endereco} />)) : <ListaProfessor id={getprofessorId.id} nome={getprofessorId.nome} matricula={getprofessorId.matricula} telefone={getprofessorId.telefone} endereco={getprofessorId.endereco} />}
             </p>
             
         </div>

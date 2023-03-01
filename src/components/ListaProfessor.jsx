@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../App.css';
 import Modal from 'react-modal'
 
-export default function ListaProfessor({ id, nome, modulos, turmas, cargaHoraria, descricao }) {
+export default function ListaProfessor({ id, nome, matricula, telefone, endereco}) {
 
     const deleteprofessor = () => {
         axios.delete(`http://localhost:3000/professor/${id}`);
@@ -13,20 +13,18 @@ export default function ListaProfessor({ id, nome, modulos, turmas, cargaHoraria
     }
 
     const [edNome, setEdNome] = useState(nome);
-    const [edModulos, setEdModulos] = useState(modulos);
-    const [edTurmas, setEdTurmas] = useState(turmas);
-    const [edCH, setEdCH] = useState(cargaHoraria);
-    const [edDescricao, setEdDescricao] = useState(descricao);
+    const [edMatricula, setEdMatricula] = useState(matricula);
+    const [edTelefone, setEdTelefone] = useState(telefone);
+    const [edEndereco, setEdEndereco] = useState(endereco);
     const [edId, setEdId] = useState(id);
 
     const editarprofessor = () => {
         axios.put(`http://localhost:3000/professor/${id}`, {
             "id": edId,
             "nome": edNome,
-            "modulos": edModulos,
-            "qtdDeTurmas": edTurmas,
-            "cargaHoraria": edCH,
-            "descricao": edDescricao
+            "matricula": edMatricula,
+            "telefone": edTelefone,
+            "endereco": edEndereco
         });
         setTimeout(() => {
             window.location.reload(1)
@@ -46,10 +44,9 @@ export default function ListaProfessor({ id, nome, modulos, turmas, cargaHoraria
             <div className='cardMap'>
                 <h2>#{id} {nome}</h2>
                 <ul className='styleMap'>
-                    <li><strong>Modulos: </strong>{modulos} </li>
-                    <li><strong>Turmas: </strong>{turmas}</li>
-                    <li><strong>Carga Horária: </strong>{cargaHoraria}</li>
-                    <li><strong>Descrição: </strong>{descricao}</li>
+                    <li><strong>Matrícula: </strong>{matricula} </li>
+                    <li><strong>Telefone: </strong>{telefone}</li>
+                    <li><strong>Endereço: </strong>{endereco}</li>
                 </ul>
                 <div>
                     <div>
@@ -64,11 +61,10 @@ export default function ListaProfessor({ id, nome, modulos, turmas, cargaHoraria
                             <h1>Editar {nome}</h1>
                             <form className='formEditar' onSubmit={editarprofessor}>
                                 <label>Id: <input type="text" name='id' value={id} disabled onChange={e => setEdId(e.target.value)}/></label>
-                                <label htmlFor="">professor: <input type="text" name='nome' required value={edNome} onChange={e => setEdNome(e.target.value)} /></label>
-                                <label htmlFor="">Modulos: <input type="text" name='modulos' required value={edModulos} onChange={e => setEdModulos(e.target.value)} /></label>
-                                <label htmlFor="">Turmas: <input type="text" name="turmas" required value={edTurmas} onChange={e => setEdTurmas(e.target.value)} /></label>
-                                <label htmlFor="">Carga Horária: <input type="text" name='cargaHoraria' required value={edCH} onChange={e => setEdCH(e.target.value)} /></label>
-                                <label htmlFor="">Descrição: <textarea name="descricao" required onChange={e => setEdDescricao(e.target.value)}>{descricao}</textarea></label>
+                                <label htmlFor="">Professor: <input type="text" name='nome' required value={edNome} onChange={e => setEdNome(e.target.value)} /></label>
+                                <label htmlFor="">Matrícula: <input type="text" name='modulos' required value={edMatricula} onChange={e => setEdMatricula(e.target.value)} /></label>
+                                <label htmlFor="">Telefone: <input type="text" name="turmas" required value={edTelefone} onChange={e => setEdTelefone(e.target.value)} /></label>
+                                <label htmlFor="">Endereço: <input type="text" name='cargaHoraria' required value={edEndereco} onChange={e => setEdEndereco(e.target.value)} /></label>
                                 <input type="submit" value="Editar" />
                             </form>
                         </Modal>
