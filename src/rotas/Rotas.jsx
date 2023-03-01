@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import Navbar from "../../view/components/Navbar";
 import '../App.css';
 
 export default function Rotas() {
 
     return (
-        <div className='rotas'>
+        <div>
+            <Navbar/>
+            <div className='rotas'>
             <h1>ENTIDADES</h1>
             <ul>
                 <li>
@@ -24,5 +27,7 @@ export default function Rotas() {
                 </li>
             </ul>
         </div>
+        </div>
+        
     )
 }

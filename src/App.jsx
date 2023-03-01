@@ -10,6 +10,7 @@ import Professores from './rotas/Professores.jsx';
 import Turmas from './rotas/Turmas.jsx';
 import Materias from './rotas/Materias.jsx';
 import Rotas from './rotas/Rotas.jsx';
+import Equipe from './rotas/Equipe.jsx';
 import './App.css'
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path='/aluno' element={<Alunos />} />
         <Route path='/cadastrodeturma' element={<PostTurma />} />
         <Route path='/turma' element={<Turmas />} />
+        <Route path='/equipe' element={<Equipe/>} />
       </Routes>
     </BrowserRouter>
   )

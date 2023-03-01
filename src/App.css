@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #081b2e;
-  color: #fff;
+  background-color: #fff;
+  color: #010620;
 }
 
 /* Rotas para as entidades */
@@ -40,6 +40,10 @@ body {
 /* Fim das rotas para as entidades */
 
 /* ROTA PARA ENTIDADE CURSO */
+
+.listagem h1{
+  font-family: 'Poppins', sans-serif;
+}
 .formAPI,
 .listagem {
   margin-top: 4rem;
@@ -170,4 +174,189 @@ body {
   min-height: 9rem;
   max-width: 18.2rem;
   min-width: 18.2rem;
+}
+
+/* navbar */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.navbar{
+  display: flex;
+  width: 100%;
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+  justify-content: space-between;
+  
+  font-size: 16px;
+
+}
+.navLinks{ 
+  display: flex;
+  padding: 1rem 2rem;
+  align-items:center ;
+  
+  
+  
+}
+
+.navLinks ul{
+  text-decoration: none;
+  display: flex;
+  
+  
+}
+
+.navLinks li{
+  margin-right: 30px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.logo{
+  width: 110px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 18px;
+  
+}
+.links{
+  display: block;
+  margin: auto;
+  padding: 0.8em 1.2em;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  z-index: 1;
+  color:#242424 ;
+}
+.links::after{
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  right: 1.25rem;
+  left: 1.25rem;
+  background-color: #242424; 
+  border-radius:50px ;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  transform-origin: bottom center;
+  z-index: -1;
+}
+.links:hover{
+  /* color: #F36F21; */
+  color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+ 
+
+}
+
+
+.links:hover:after {
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+
+/* buttons */
+.btn{
+  
+  width: 140px;
+  height: 30px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  transition: 0.5s;
+  font-size: 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  margin-left:10px;
+  margin-right:10px;
+
+}
+.btn:hover{
+  border: none;
+  color: white;
+  font-size: 13px;
+  transform: scale(1.0);
+}
+.adicionar{
+  border: 1px solid #19D26A;
+  color: #19D26A;
+}
+.adicionar:hover{
+  background-color: #19D26A;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.rota:hover{
+  font-size: 13px;
+  transform: scale(1.0);
+  border: 1px solid #1988d2;
+  background-color:#1988d2 ;
+  color: #fff;
+}
+
+/* caixa de pesquisa */
+.caixa-busca{
+  
+    margin-top: 15px;
+    margin-left: 150px;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    height: 50px;
+}
+.caixa-busca:hover > .caixa-pesquisa{
+  width: 200px;
+  height: 25px;
+  padding: 0 6px;
+  
+}
+.caixa-buscah:hover > .button-buscar {
+  background-color: #fff;
+  margin-left: 3px;
+
+
+}
+.button-buscar{
+    color: #fff;
+    float: right;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #333;
+    display: flex;
+    border: none;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+    
+}
+
+
+.caixa-pesquisa{
+  border: none;
+  background-color: #333;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+  height: 20px;
+  
+  
 }
