@@ -26,17 +26,18 @@ export default function Materias() {
 
     return (
         <div className='listagem'>
-            <h1>Nossos materias</h1>
-            <p>A instituição de ensino FiqueRico oferece os melhores materias na área de tecnologia.<br />Se capacite e construa sua carreira nesse mercado em constante expansão!</p>
+            <h1>Matérias</h1>
+            <p>Algumas de nossas matérias:</p>
             <div>
-                <button> <Link to='/cadastrodemateria'>Adicionar materias</Link></button>
+                <button><Link to='/'>Rotas</Link></button>
+                <button> <Link to='/cadastrodemateria'>Adicionar matérias</Link></button>
                 <form action="" onSubmit={buscar}>
-                    <input type='text' name='busca' required placeholder='Digite o ID do materia...' value={materiaId} onChange={e => setmateriaId(e.target.value)} />
+                    <input type='text' name='busca' required placeholder='Digite o ID da matéria...' value={materiaId} onChange={e => setmateriaId(e.target.value)} />
                     <input type="submit" value="Buscar" />
                 </form>
             </div>
             <p className='listaMap'>
-                {busca === false ? materias.map((e) => (<ListaMateria id={e.id} nome={e.nome} cargaHoraria={e.cargaHoraria} tempos={e.tempos} />)) : <Listamaterias id={getmateriaId.id} nome={getmateriaId.nome} cargaHoraria={getmateriaId.cargaHoraria} tempos={getmateriaId.tempos} />}
+                {busca === false ? materias.map((e) => (<ListaMateria id={e.id} nome={e.nome} cargaHoraria={e.cargaHoraria} tempos={e.tempos} />)) : <ListaMateria id={getmateriaId.id} nome={getmateriaId.nome} cargaHoraria={getmateriaId.cargaHoraria} tempos={getmateriaId.tempos} />}
             </p>
             
         </div>

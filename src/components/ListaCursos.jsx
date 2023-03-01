@@ -45,7 +45,7 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
         <div>
             <div className='cardMap'>
                 <h2>#{id} {nome}</h2>
-                <ul className='cursosMap'>
+                <ul className='styleMap'>
                     <li><strong>Modulos: </strong>{modulos} </li>
                     <li><strong>Turmas: </strong>{turmas}</li>
                     <li><strong>Carga Horária: </strong>{cargaHoraria}</li>

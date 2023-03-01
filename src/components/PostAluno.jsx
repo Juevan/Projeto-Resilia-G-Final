@@ -4,19 +4,17 @@ import axios from "axios";
 
 export default function Postaluno() {
     const [nome, setNome] = useState();
-    const [modulos, setModulos] = useState();
-    const [turmas, setTurmas] = useState();
-    const [cargaHoraria, setCargaHoraria] = useState();
-    const [descricao, setDescricao] = useState();
+    const [turma, setTurma] = useState();
+    const [media, setMedia] = useState();
+    const [telefone, setTelefone] = useState();
 
 
     const postAPI = async (e) => {
         await axios.post('http://localhost:3000/aluno', {
             "nome": nome,
-            "modulos": modulos,
-            "qtdDeTurmas": turmas,
-            "cargaHoraria": cargaHoraria,
-            "descricao": descricao
+            "turma": turma,
+            "media": media,
+            "telefone": telefone,
         })
     }
 
@@ -26,13 +24,12 @@ export default function Postaluno() {
             <h1>Cadastro de alunos</h1>
             <form onSubmit={postAPI} >
                 <input type="text" name='nome' required placeholder='Digite o nome do aluno' onChange={e => setNome(e.target.value)} />
-                <input type="text" name='modulos' required placeholder='Digite a quantidade de modulos' onChange={e => setModulos(e.target.value)} />
-                <input type="text" name="turmas" required placeholder='Digite a quantidade de turmas' onChange={e => setTurmas(e.target.value)} />
-                <input type="text" name='cargaHoraria' required placeholder='Digite a carga horária do aluno' onChange={e => setCargaHoraria(e.target.value)} />
-                <textarea name="descricao" required placeholder='Digite a descrição do aluno' onChange={e => setDescricao(e.target.value)}></textarea>
+                <input type="text" name='turma' required placeholder='Digite sua turma' onChange={e => setTurma(e.target.value)} />
+                <input type="text" name="media" required placeholder='Digite sua média' onChange={e => setMedia(e.target.value)} />
+                <input type="text" name='telefone' required placeholder='Digite seu telefone' onChange={e => setTelefone(e.target.value)} />
                 <input type="submit" value="Adicionar" />
             </form>
-            <button><Link to='/alunos'>alunos</Link></button>
+            <button><Link to='/aluno'>Alunos</Link></button>
 
         </div>
 

@@ -28,8 +28,8 @@ export default function Cursos() {
 
     return (
         <div className='listagem'>
-            <h1>Nossos Cursos</h1>
-            <p>A instituição de ensino FiqueRico oferece os melhores cursos na área de tecnologia.<br />Se capacite e construa sua carreira nesse mercado em constante expansão!</p>
+            <h1>Cursos</h1>
+            <p>Alguns dos cursos que nossa instituição oferece:</p>
             <div>
                 <button><Link to='/'>Rotas</Link></button>
                 <button> <Link to='/cadastrodecurso'>Adicionar cursos</Link></button>
