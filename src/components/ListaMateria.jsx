@@ -40,14 +40,14 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
     return (
         <div>
             <div className='cardMap'>
-                <h2>#{id} {nome}</h2>
+                <h2 className='titulo'>#{id} {nome}</h2>
                 <ul className='styleMap'>
                     <li><strong>Carga Horária: </strong>{cargaHoraria}</li>
                     <li><strong>Tempos: </strong>{tempos}</li>
                 </ul>
                 <div>
                     <div>
-                        <button onClick={modalEditarOpen}>Editar</button>
+                        <button className='btn btnEditar' onClick={modalEditarOpen}>Editar</button>
                         <Modal
                             isOpen={modalEditar}
                             onRequestClose={modalEditarClosed}
@@ -66,7 +66,7 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
                         </Modal>
                     </div>
 
-                    <button onClick={deletemateria}>Excluir</button>
+                    <button className='btn remover' onClick={deletemateria}>Excluir</button>
                 </div>
             </div>
         </div>
