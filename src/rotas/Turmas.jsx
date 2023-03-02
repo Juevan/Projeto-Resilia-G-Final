@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Await, Link } from 'react-router-dom';
 import ListaTurma from '../components/ListaTurma.jsx';
 import { useEffect, useState } from 'react';
+import Navbar from '../../view/components/Navbar'
 
 export default function turmas() {
 
@@ -25,15 +26,17 @@ export default function turmas() {
     }
 
     return (
-        <div className='listagem'>
+        <div>
+            <Navbar/>
+            <div className='listagem'>
             <h1>Turmas</h1>
             <p>Algumas de nossas turmas:</p>
             <div>
-                <button><Link to='/'>Rotas</Link></button>
-                <button> <Link to='/cadastrodeturma'>Adicionar turmas</Link></button>
-                <form action="" onSubmit={buscar}>
-                    <input type='text' name='busca' required placeholder='Digite o ID do turma...' value={turmaId} onChange={e => setTurmaId(e.target.value)} />
-                    <input type="submit" value="Buscar" />
+                <button className='btn rota'><Link to='/'>Rotas</Link></button>
+                <button className='btn adicionar'> <Link to='/cadastrodeturma'>Adicionar turmas</Link></button>
+                <form className='caixa-busca' action="" onSubmit={buscar}>
+                    <input className='caixa-pesquisa' type='text' name='busca' required placeholder='Digite o ID do turma...' value={turmaId} onChange={e => setTurmaId(e.target.value)} />
+                    <input className='button-buscar ' type="submit" value="Buscar" />
                 </form>
             </div>
             <p className='listaMap'>
@@ -41,5 +44,7 @@ export default function turmas() {
             </p>
             
         </div>
+        </div>
+        
     )
 }
