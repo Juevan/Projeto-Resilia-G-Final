@@ -40,7 +40,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
     return (
         <div>
             <div className='cardMap'>
-                <h2 className='titulo'>Turma #{id}</h2>
+                <h2>Turma #{id}</h2>
                 <ul className='styleMap'>
                     <li><strong>Quantidade de Alunos: </strong>{alunos} </li>
                     <li><strong>Turno: </strong>{turno}</li>
@@ -48,7 +48,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
                 </ul>
                 <div>
                     <div>
-                        <button className='btn btnEditar' onClick={modalEditarOpen}>Editar</button>
+                        <button onClick={modalEditarOpen}>Editar</button>
                         <Modal
                             isOpen={modalEditar}
                             onRequestClose={modalEditarClosed}
@@ -67,7 +67,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deleteturma}>Excluir</button>
+                    <button onClick={deleteturma}>Excluir</button>
                 </div>
             </div>
         </div>

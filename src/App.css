@@ -108,13 +108,8 @@ body {
   flex-direction: column;
   text-align: center;
   padding: 2rem;
+  border: 1px solid #fff;
   gap: 1.8rem;
-  background-color: #6b6a6a16;
-  border-radius: 10px;
- 
-  -webkit-box-shadow: 9px 10px 33px -7px rgba(0, 0, 0, 0.43);
-    -moz-box-shadow: 9px 10px 33px -7px rgba(0, 0, 0, 0.43);
-    box-shadow: 9px 10px 33px -7px rgba(0, 0, 0, 0.43);
 }
 
 .cardMap div {
@@ -126,11 +121,6 @@ body {
 .cardMap:hover {
   transform: scale(1.1);
   transition: all ease-in-out .2s;
-  cursor: pointer;
-  
-}
-.titulo{
-  font-family: 'Poppins', sans-serif;
 }
 
 /* FIM DA ROTA PARA ENTIDADE CURSO */
@@ -273,7 +263,6 @@ body {
 }
 
 /* buttons */
-
 .btn{
   
   width: 140px;
@@ -291,8 +280,8 @@ body {
 
 }
 .btn:hover{
-  border: solid 1px;
-  color: #000;
+  border: none;
+  color: white;
   font-size: 13px;
   transform: scale(1.0);
 }
@@ -306,25 +295,12 @@ body {
   color: #fff;
 }
 
-.remover{
-  color: #fff;
-  background-color: #d24719;
-
-}
-
 .rota:hover{
   font-size: 13px;
   transform: scale(1.0);
   border: 1px solid #1988d2;
-  background-color:#85bbdf ;
+  background-color:#1988d2 ;
   color: #fff;
-}
-
-.btnEditar{
-  
-  color: #000000;
-  border: 1px solid #000;
-  
 }
 
 /* caixa de pesquisa */
@@ -383,23 +359,4 @@ body {
   height: 20px;
   
   
-}
-.media{
-  margin-top: 30px;
-}
-
-/* PÀGINA EQUIPE */
-.main{
-  display: grid;
-  grid-template: 
-  "footer" "footer" "footer"
-  ;
-
-
-}
-footer{
-  background-color: #b8d9ef;
-  height: 300px;
-  width: 100vw;
-  grid-area: footer;
 }

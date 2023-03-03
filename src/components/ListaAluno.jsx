@@ -42,7 +42,7 @@ export default function ListaAlunos({ id, nome, turma, media, telefone}) {
     return (
         <div>
             <div className='cardMap'>
-                <h2 className='titulo'>#{id} {nome}</h2>
+                <h2>#{id} {nome}</h2>
                 <ul className='styleMap'>
                     <li><strong>Turma: </strong>{turma} </li>
                     <li><strong>Média: </strong>{media}</li>
@@ -50,7 +50,7 @@ export default function ListaAlunos({ id, nome, turma, media, telefone}) {
                 </ul>
                 <div>
                     <div>
-                        <button className='btn btnEditar' onClick={modalEditarOpen}>Editar</button>
+                        <button onClick={modalEditarOpen}>Editar</button>
                         <Modal
                             isOpen={modalEditar}
                             onRequestClose={modalEditarClosed}
@@ -70,7 +70,7 @@ export default function ListaAlunos({ id, nome, turma, media, telefone}) {
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deletealuno}>Excluir</button>
+                    <button onClick={deletealuno}>Excluir</button>
                 </div>
             </div>
         </div>

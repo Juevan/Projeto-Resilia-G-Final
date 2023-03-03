@@ -4,17 +4,9 @@ import Navbar from '../../view/components/Navbar'
 const Equipe = () => {
   return (
     <div className=''>
+    <div className='main'>
       <Navbar/>
-      <div className='main'>
-        <h2 className='titulo '>Nossa Equipe</h2>
-        
-        
-        
-      </div>
-      <footer>
-        
-      </footer>
-
+    </div>
       
     </div>
   )
