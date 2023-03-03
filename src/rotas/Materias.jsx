@@ -1,50 +1,74 @@
-import '../App.css';
-import axios from 'axios';
-import { Await, Link } from 'react-router-dom';
-import ListaMateria from '../components/ListaMateria.jsx';
-import { useEffect, useState } from 'react';
-import Navbar from '../../view/components/Navbar'
+import "../App.css";
+import Navbar from "../../view/components/Navbar";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import ListaMateria from "../components/ListaMateria.jsx";
+import { useEffect, useState } from "react";
 
-export default function Materias() {
+export default function materias() {
+  const [materias, setmaterias] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3000/materia").then((res) => setmaterias(res.data));
+  }, []);
 
-    const [materias, setmaterias] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:3000/materia').then((e) => setmaterias(e.data))
-    }, [])
+  const [getmateriaId, setGetmateriaId] = useState({});
+  const [busca, setBusca] = useState(false);
+  const [materiaId, setmateriaId] = useState("");
 
-    const [getmateriaId, setGetmateriaId] = useState([]);
-    useEffect(() => {
-       axios.get(`http://localhost:3000/materia/${materiaId}`).then((e) => setGetmateriaId(e.data));
-    }, []);
-    
-    const [busca, setBusca] = useState(false);
-    const [materiaId, setmateriaId] = useState('')
+  const materiasRender = materias.map((materia) => (
+    <ListaMateria
+      id={materia.id}
+      nome={materia.nome}
+      cargaHoraria={materia.cargaHoraria}
+      tempos={materia.tempos}
+    />
+  ));
 
-    const buscar = (e) => {
-        e.preventDefault()
-        setBusca(true);
-    }
+  const buscar = (e) => {
+    e.preventDefault();
+    axios.get(`http://localhost:3000/materia/${materiaId}`).then((res) => {
+      setGetmateriaId(res.data);
+      setBusca(true);
+    });
+  };
 
-    return (
+  const materiaIdRender = (
+    <ListaMateria
+      id={getmateriaId.id}
+      nome={getmateriaId.nome}
+      cargaHoraria={getmateriaId.cargaHoraria}
+      tempos={getmateriaId.tempos}
+    />
+  );
+
+  return (
+    <div>
+      <Navbar />
+      <div className="listagem">
+        <h1>Materias</h1>
+        <p>Alguns dos matérias que nossa instituição oferece:</p>
         <div>
-            <Navbar/>
-            <div className='listagem'>
-            <h1>Matérias</h1>
-            <p>Algumas de nossas matérias:</p>
-            <div>
-                <button className='btn rota'><Link to='/'>Rotas</Link></button>
-                <button className='btn adicionar'> <Link to='/cadastrodemateria'>Adicionar matérias</Link></button>
-                <form className='caixa-busca' action="" onSubmit={buscar}>
-                    <input className='caixa-pesquisa' type='text' name='busca' required placeholder='Digite o ID da matéria...' value={materiaId} onChange={e => setmateriaId(e.target.value)} />
-                    <input className='button-buscar ' type="submit" value="Buscar" />
-                </form>
-            </div>
-            <p className='listaMap'>
-                {busca === false ? materias.map((e) => (<ListaMateria id={e.id} nome={e.nome} cargaHoraria={e.cargaHoraria} tempos={e.tempos} />)) : <ListaMateria id={getmateriaId.id} nome={getmateriaId.nome} cargaHoraria={getmateriaId.cargaHoraria} tempos={getmateriaId.tempos} />}
-            </p>
-            
+          <button className="btn rota">
+            <Link to="/">Rotas</Link>
+          </button>
+          <button className="btn adicionar">
+            <Link to="/cadastrodemateria">Adicionar materias</Link>
+          </button>
+          <form className="caixa-busca" action="" onSubmit={buscar}>
+            <input
+              className="caixa-pesquisa"
+              type="text"
+              name="busca"
+              required
+              placeholder="Digite o ID do materia..."
+              value={materiaId}
+              onChange={(e) => setmateriaId(e.target.value)}
+            />
+            <input className="button-buscar " type="submit" value="Buscar" />
+          </form>
         </div>
-        </div>
-        
-    )
+        <p className="listaMap">{busca ? materiaIdRender : materiasRender}</p>
+      </div>
+    </div>
+  );
 }
