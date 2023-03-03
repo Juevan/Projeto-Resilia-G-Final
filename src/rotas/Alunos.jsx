@@ -1,50 +1,76 @@
-import '../App.css';
-import axios from 'axios';
-import { Await, Link } from 'react-router-dom';
-import ListaAluno from '../components/ListaAluno.jsx';
-import { useEffect, useState } from 'react';
-import Navbar from '../../view/components/Navbar'
+import "../App.css";
+import Navbar from "../../view/components/Navbar";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import ListaAlunos from "../components/ListaAluno";
+import { useEffect, useState } from "react";
 
 export default function alunos() {
+  const [alunos, setalunos] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3000/aluno").then((res) => setalunos(res.data));
+  }, []);
 
-    const [alunos, setAlunos] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:3000/aluno').then((e) => setAlunos(e.data))
-    }, [])
+  const [getalunoId, setGetalunoId] = useState({});
+  const [busca, setBusca] = useState(false);
+  const [alunoId, setalunoId] = useState("");
 
-    const [getAlunoId, setGetAlunoId] = useState([]);
-    useEffect(() => {
-       axios.get(`http://localhost:3000/aluno/${alunoId}`).then((e) => setGetAlunoId(e.data));
-    }, []);
-    
-    const [busca, setBusca] = useState(false);
-    const [alunoId, setAlunoId] = useState('')
+  const alunosRender = alunos.map((aluno) => (
+    <ListaAlunos
+      id={aluno.id}
+      nome={aluno.nome}
+      turma={aluno.turma}
+      media={aluno.media}
+      telefone={aluno.telefone}
+    />
+  ));
 
-    const buscar = (e) => {
-        e.preventDefault()
-        setBusca(true);
-    }
+  const buscar = (e) => {
+    e.preventDefault();
+    axios.get(`http://localhost:3000/aluno/${alunoId}`).then((res) => {
+      setGetalunoId(res.data);
+      setBusca(true);
+    });
+  };
 
-    return (
+  const alunoIdRender = (
+    <ListaAlunos
+      id={getalunoId.id}
+      nome={getalunoId.nome}
+      turma={getalunoId.turma}
+      media={getalunoId.media}
+      telefone={getalunoId.telefone}
+    />
+  );
+
+  return (
+    <div>
+      <Navbar />
+      <div className="listagem">
+        <h1>alunos</h1>
+        <p>Alguns dos alunos que nossa instituição oferece:</p>
         <div>
-            <Navbar/>
-            <div className='listagem'>
-            <h1>Alunos</h1>
-            <p>Os alunos de nossa unidade:</p>
-            <div>
-                <button className='btn rota'><Link to='/'>Rotas</Link></button>
-                <button className='btn adicionar'> <Link to='/cadastrodealuno'>Adicionar alunos</Link></button>
-                <form className='caixa-busca' action="" onSubmit={buscar}>
-                    <input className='caixa-pesquisa' type='text' name='busca' required placeholder='Digite o ID do aluno...' value={alunoId} onChange={e => setAlunoId(e.target.value)} />
-                    <input className='button-buscar '  type="submit" value="Buscar" />
-                </form>
-            </div>
-            <p className='listaMap'>
-                {busca === false ? alunos.map((e) => (<ListaAluno id={e.id} nome={e.nome} turma={e.turma} media={e.media} telefone={e.telefone} />)) : <ListaAluno id={getAlunoId.id} nome={getAlunoId.nome} turma={getAlunoId.turma} media={getAlunoId.media} telefone={getAlunoId.telefone} />}
-            </p>
-            
+          <button className="btn rota">
+            <Link to="/">Rotas</Link>
+          </button>
+          <button className="btn adicionar">
+            <Link to="/cadastrodealuno">Adicionar alunos</Link>
+          </button>
+          <form className="caixa-busca" action="" onSubmit={buscar}>
+            <input
+              className="caixa-pesquisa"
+              type="text"
+              name="busca"
+              required
+              placeholder="Digite o ID do aluno..."
+              value={alunoId}
+              onChange={(e) => setalunoId(e.target.value)}
+            />
+            <input className="button-buscar " type="submit" value="Buscar" />
+          </form>
         </div>
-        </div>
-        
-    )
+        <p className="listaMap">{busca ? alunoIdRender : alunosRender}</p>
+      </div>
+    </div>
+  );
 }
