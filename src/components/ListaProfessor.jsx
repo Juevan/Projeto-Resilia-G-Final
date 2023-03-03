@@ -42,7 +42,7 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
     return (
         <div>
             <div className='cardMap'>
-                <h2>#{id} {nome}</h2>
+                <h2 className='titulo'>#{id} {nome}</h2>
                 <ul className='styleMap'>
                     <li><strong>Matrícula: </strong>{matricula} </li>
                     <li><strong>Telefone: </strong>{telefone}</li>
@@ -50,7 +50,7 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
                 </ul>
                 <div>
                     <div>
-                        <button onClick={modalEditarOpen}>Editar</button>
+                        <button className='btn btnEditar' onClick={modalEditarOpen}>Editar</button>
                         <Modal
                             isOpen={modalEditar}
                             onRequestClose={modalEditarClosed}
@@ -70,7 +70,7 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
                         </Modal>
                     </div>
 
-                    <button onClick={deleteprofessor}>Excluir</button>
+                    <button className='btn remover' onClick={deleteprofessor}>Excluir</button>
                 </div>
             </div>
         </div>

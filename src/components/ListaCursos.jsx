@@ -44,16 +44,16 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
     return (
         <div>
             <div className='cardMap'>
-                <h2>#{id} {nome}</h2>
+                <h2 className='titulo'>#{id} {nome}</h2>
                 <ul className='styleMap'>
                     <li><strong>Modulos: </strong>{modulos} </li>
                     <li><strong>Turmas: </strong>{turmas}</li>
                     <li><strong>Carga Horária: </strong>{cargaHoraria}</li>
                     <li><strong>Descrição: </strong>{descricao}</li>
                 </ul>
-                <div>
-                    <div>
-                        <button onClick={modalEditarOpen}>Editar</button>
+                <div className='media'>
+                    <div >
+                        <button className='btn btnEditar' onClick={modalEditarOpen}>Editar</button>
                         <Modal
                             isOpen={modalEditar}
                             onRequestClose={modalEditarClosed}
@@ -74,7 +74,7 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
                         </Modal>
                     </div>
 
-                    <button onClick={deleteCurso}>Excluir</button>
+                    <button className='btn remover' onClick={deleteCurso}>Excluir</button>
                 </div>
             </div>
         </div>
