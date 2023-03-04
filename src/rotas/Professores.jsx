@@ -35,13 +35,13 @@ export default function professors() {
   const professorIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Professores</button>
-      <ListaProfessor
+      {getprofessorId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaProfessor
         id={getprofessorId.id}
         nome={getprofessorId.nome}
         matricula={getprofessorId.matricula}
         telefone={getprofessorId.telefone}
         endereco={getprofessorId.endereco}
-      />
+      />}
     </div>
   );
 
@@ -49,7 +49,7 @@ export default function professors() {
     <div>
       <div className="listagem">
         <h1>Professores</h1>
-        <p>O time de professores que fazem parte do nosso time:</p>
+        <p className="pDescricao">O time de professores que fazem parte do nosso time:</p>
         <div>
           <button className="btn adicionar">
             <Link to="/cadastrodeprofessor">Adicionar professores</Link>

@@ -36,14 +36,14 @@ export default function Cursos() {
   const cursoIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Cursos</button>
-      <ListaCursos
+      {getCursoId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaCursos
         id={getCursoId.id}
         nome={getCursoId.nome}
         modulos={getCursoId.modulos}
         turmas={getCursoId.qtdDeTurmas}
         cargaHoraria={getCursoId.cargaHoraria}
         descricao={getCursoId.descricao}
-      />
+      />}
     </div>
   );
 
@@ -51,7 +51,7 @@ export default function Cursos() {
     <div>
       <div className="listagem">
         <h1>Cursos</h1>
-        <p>Alguns dos cursos que nossa instituição oferece:</p>
+        <p className="pDescricao">Alguns dos cursos que nossa instituição oferece:</p>
         <div>
           <button className="btn adicionar">
             <Link to="/cadastrodecurso">Adicionar cursos</Link>

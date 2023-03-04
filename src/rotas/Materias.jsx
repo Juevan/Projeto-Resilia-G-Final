@@ -34,12 +34,12 @@ export default function materias() {
   const materiaIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Matérias</button>
-      <ListaMateria
+      {getmateriaId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaMateria
         id={getmateriaId.id}
         nome={getmateriaId.nome}
         cargaHoraria={getmateriaId.cargaHoraria}
         tempos={getmateriaId.tempos}
-      />
+      />}
     </div>
   );
 
@@ -47,7 +47,7 @@ export default function materias() {
     <div>
       <div className="listagem">
         <h1>Matérias</h1>
-        <p>Algumas das matérias que nossa instituição oferece:</p>
+        <p className="pDescricao">Algumas das matérias que nossa instituição oferece:</p>
         <div>
           <button className="btn adicionar">
             <Link to="/cadastrodemateria">Adicionar matérias</Link>

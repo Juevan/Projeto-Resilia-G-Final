@@ -34,12 +34,12 @@ export default function turma() {
   const turmaIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Turmas</button>
-      <ListaTurma
+      {getturmaId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaTurma
         id={getturmaId.id}
         alunos={getturmaId.alunos}
         turno={getturmaId.turno}
         professor={getturmaId.professor}
-        />
+        />}
     </div>
   );
 
@@ -47,7 +47,7 @@ export default function turma() {
     <div>
       <div className="listagem">
         <h1>Turmas</h1>
-        <p>Turmas ativas em nossa instituição:</p>
+        <p className="pDescricao">Turmas ativas em nossa instituição:</p>
         <div>
           <button className="btn adicionar">
             <Link to="/cadastrodeturma">Adicionar turma</Link>
