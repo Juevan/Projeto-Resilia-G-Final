@@ -47,7 +47,7 @@ export default function alunos() {
     <div>
       <Navbar />
       <div className="listagem">
-        <h1>alunos</h1>
+        <h1>Alunos</h1>
         <p>Alguns dos alunos que nossa instituição oferece:</p>
         <div>
           <button className="btn rota">

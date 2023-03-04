@@ -61,7 +61,7 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
                                 <label htmlFor="">Materia: <input type="text" name='nome' required value={edNome} onChange={e => setEdNome(e.target.value)} /></label>
                                 <label htmlFor="">Carga Horária: <input type="text" name='cargaHoraria' required value={edCH} onChange={e => setEdCH(e.target.value)} /></label>
                                 <label htmlFor="">Tempos: <input type='text' name="tempos" required onChange={e => setEdTempos(e.target.value)} value={edTempos}/> </label>
-                                <input type="submit" value="Editar" />
+                                <input className='btn-salvar'  type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>
