@@ -69,7 +69,7 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
                                 <label htmlFor="">Turmas: <input type="text" name="turmas" required value={edTurmas} onChange={e => setEdTurmas(e.target.value)} /></label>
                                 <label htmlFor="">Carga Horária: <input type="text" name='cargaHoraria' required value={edCH} onChange={e => setEdCH(e.target.value)} /></label>
                                 <label htmlFor="">Descrição: <textarea name="descricao" required onChange={e => setEdDescricao(e.target.value)}>{descricao}</textarea></label>
-                                <input type="submit" value="Editar" />
+                                <input className='btn-salvar' type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>

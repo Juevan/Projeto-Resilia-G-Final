@@ -47,14 +47,14 @@ export default function professors() {
     <div>
       <Navbar />
       <div className="listagem">
-        <h1>professors</h1>
-        <p>Alguns dos professors que nossa instituição oferece:</p>
+        <h1>Professores</h1>
+        <p>Alguns dos professores que nossa instituição oferece:</p>
         <div>
           <button className="btn rota">
             <Link to="/">Rotas</Link>
           </button>
           <button className="btn adicionar">
-            <Link to="/cadastrodeprofessor">Adicionar professors</Link>
+            <Link to="/cadastrodeprofessor">Adicionar professores</Link>
           </button>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input

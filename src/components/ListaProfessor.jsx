@@ -65,7 +65,7 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
                                 <label htmlFor="">Matrícula: <input type="text" name='modulos' required value={edMatricula} onChange={e => setEdMatricula(e.target.value)} /></label>
                                 <label htmlFor="">Telefone: <input type="text" name="turmas" required value={edTelefone} onChange={e => setEdTelefone(e.target.value)} /></label>
                                 <label htmlFor="">Endereço: <input type="text" name='cargaHoraria' required value={edEndereco} onChange={e => setEdEndereco(e.target.value)} /></label>
-                                <input type="submit" value="Editar" />
+                                <input className='btn-salvar'  type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>

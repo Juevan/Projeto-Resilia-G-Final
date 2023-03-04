@@ -65,7 +65,7 @@ export default function ListaAlunos({ id, nome, turma, media, telefone}) {
                                 <label htmlFor="">Turma: <input type="text" name='turma' required value={edTurma} onChange={e => setEdTurma(e.target.value)} /></label>
                                 <label htmlFor="">Média: <input type="text" name="media" required value={edMedia} onChange={e => setEdMedia(e.target.value)} /></label>
                                 <label htmlFor="">Telefone: <input type="text" name='telefone' required value={edTelefone} onChange={e => setEdTelefone(e.target.value)} /></label>
-                                <input type="submit" value="Editar" />
+                                <input className='btn-salvar'  type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>

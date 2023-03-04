@@ -62,7 +62,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
                                 <label htmlFor="">Quantidade de Alunos: <input type="text" name='alunos' required value={edAlunos} onChange={e => setEdAlunos(e.target.value)} /></label>
                                 <label htmlFor="">Turno: <input type="text" name='turno' required value={edTurno} onChange={e => setEdTurno(e.target.value)} /></label>
                                 <label htmlFor="">Professor: <input type="text" name="professor" required value={edProfessor} onChange={e => setEdProfessor(e.target.value)} /></label>
-                                <input type="submit" value="Editar" />
+                                <input className='btn-salvar'  type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>
