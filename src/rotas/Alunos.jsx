@@ -35,13 +35,13 @@ export default function alunos() {
   const alunoIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Alunos</button>
-      <ListaAlunos
+      {getalunoId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaAlunos
         id={getalunoId.id}
         nome={getalunoId.nome}
         turma={getalunoId.turma}
         media={getalunoId.media}
         telefone={getalunoId.telefone}
-      />
+      />}
     </div>
   );
 
@@ -49,7 +49,7 @@ export default function alunos() {
     <div>
       <div className="listagem">
         <h1>Alunos</h1>
-        <p>Alunos matriculados em nossa instituição:</p>
+        <p className="pDescricao">Alunos matriculados em nossa instituição:</p>
         <div>
           <button className="btn adicionar">
             <Link to="/cadastrodealuno">Adicionar aluno</Link>

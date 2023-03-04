@@ -83,13 +83,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateY(-2rem);
+  transform: translateY(-2rem)
 }
 .btnLista{
   margin-bottom: 2rem;
 }
+.pError{
+  background-color: #f8d7da;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #f1aeb5;
+  color: #b02a37;
+  font-size: 17px;
+}
 
-.listagem p:nth-child(2) {
+.pDescricao {
   font-size: 1.3rem;
 }
 
