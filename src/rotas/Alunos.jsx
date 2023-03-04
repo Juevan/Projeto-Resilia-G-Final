@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../../view/components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaAlunos from "../components/ListaAluno";
@@ -34,27 +33,26 @@ export default function alunos() {
   };
 
   const alunoIdRender = (
-    <ListaAlunos
-      id={getalunoId.id}
-      nome={getalunoId.nome}
-      turma={getalunoId.turma}
-      media={getalunoId.media}
-      telefone={getalunoId.telefone}
-    />
+    <div className="listaMapId">
+      <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Alunos</button>
+      <ListaAlunos
+        id={getalunoId.id}
+        nome={getalunoId.nome}
+        turma={getalunoId.turma}
+        media={getalunoId.media}
+        telefone={getalunoId.telefone}
+      />
+    </div>
   );
 
   return (
     <div>
-      <Navbar />
       <div className="listagem">
         <h1>Alunos</h1>
-        <p>Alguns dos alunos que nossa instituição oferece:</p>
+        <p>Alunos matriculados em nossa instituição:</p>
         <div>
-          <button className="btn rota">
-            <Link to="/">Rotas</Link>
-          </button>
           <button className="btn adicionar">
-            <Link to="/cadastrodealuno">Adicionar alunos</Link>
+            <Link to="/cadastrodealuno">Adicionar aluno</Link>
           </button>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input

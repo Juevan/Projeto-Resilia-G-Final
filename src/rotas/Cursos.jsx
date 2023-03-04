@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../../view/components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaCursos from "../components/ListaCursos.jsx";
@@ -35,26 +34,25 @@ export default function Cursos() {
   };
 
   const cursoIdRender = (
-    <ListaCursos
-      id={getCursoId.id}
-      nome={getCursoId.nome}
-      modulos={getCursoId.modulos}
-      turmas={getCursoId.qtdDeTurmas}
-      cargaHoraria={getCursoId.cargaHoraria}
-      descricao={getCursoId.descricao}
-    />
+    <div className="listaMapId">
+      <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Cursos</button>
+      <ListaCursos
+        id={getCursoId.id}
+        nome={getCursoId.nome}
+        modulos={getCursoId.modulos}
+        turmas={getCursoId.qtdDeTurmas}
+        cargaHoraria={getCursoId.cargaHoraria}
+        descricao={getCursoId.descricao}
+      />
+    </div>
   );
 
   return (
     <div>
-      <Navbar />
       <div className="listagem">
         <h1>Cursos</h1>
         <p>Alguns dos cursos que nossa instituição oferece:</p>
         <div>
-          <button className="btn rota">
-            <Link to="/">Rotas</Link>
-          </button>
           <button className="btn adicionar">
             <Link to="/cadastrodecurso">Adicionar cursos</Link>
           </button>

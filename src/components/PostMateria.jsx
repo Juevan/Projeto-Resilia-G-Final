@@ -9,11 +9,15 @@ export default function Postmateria() {
 
 
     const postAPI = async (e) => {
+        e.preventDefault();
         await axios.post('http://localhost:3000/materia', {
             "nome": nome,
             "cargaHoraria": cargaHoraria,
             "tempos": tempos
         })
+        setTimeout(() => {
+            window.location.href = '/materia';
+        }, 150)
     }
 
     return (

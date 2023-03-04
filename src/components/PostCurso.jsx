@@ -11,6 +11,7 @@ export default function PostCurso() {
 
 
     const postAPI = async (e) => {
+        e.preventDefault();
         await axios.post('http://localhost:3000/curso', {
             "nome": nome,
             "modulos": modulos,
@@ -18,6 +19,9 @@ export default function PostCurso() {
             "cargaHoraria": cargaHoraria,
             "descricao": descricao
         })
+        setTimeout(() => {
+            window.location.href = '/cursos'
+        }, 150)
     }
 
     return (

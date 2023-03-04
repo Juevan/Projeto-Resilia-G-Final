@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../../view/components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaProfessor from "../components/ListaProfessor.jsx";
@@ -34,25 +33,24 @@ export default function professors() {
   };
 
   const professorIdRender = (
-    <ListaProfessor
-      id={getprofessorId.id}
-      nome={getprofessorId.nome}
-      matricula={getprofessorId.matricula}
-      telefone={getprofessorId.telefone}
-      endereco={getprofessorId.endereco}
-    />
+    <div className="listaMapId">
+      <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Professores</button>
+      <ListaProfessor
+        id={getprofessorId.id}
+        nome={getprofessorId.nome}
+        matricula={getprofessorId.matricula}
+        telefone={getprofessorId.telefone}
+        endereco={getprofessorId.endereco}
+      />
+    </div>
   );
 
   return (
     <div>
-      <Navbar />
       <div className="listagem">
         <h1>Professores</h1>
-        <p>Alguns dos professores que nossa instituição oferece:</p>
+        <p>O time de professores que fazem parte do nosso time:</p>
         <div>
-          <button className="btn rota">
-            <Link to="/">Rotas</Link>
-          </button>
           <button className="btn adicionar">
             <Link to="/cadastrodeprofessor">Adicionar professores</Link>
           </button>

@@ -1,4 +1,5 @@
 import { Route, Routes, Link, BrowserRouter } from 'react-router-dom';
+import Navbar from '../view/components/Navbar.jsx';
 import PostCurso from './components/PostCurso.jsx';
 import PostAluno from './components/PostAluno.jsx';
 import PostProfessor from './components/PostProfessor.jsx';
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route exact path='/' element={<Rotas />} />
         <Route path='/cadastrodecurso' element={<PostCurso />} />

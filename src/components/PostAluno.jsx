@@ -10,18 +10,22 @@ export default function Postaluno() {
 
 
     const postAPI = async (e) => {
+        e.preventDefault();
         await axios.post('http://localhost:3000/aluno', {
             "nome": nome,
             "turma": turma,
             "media": media,
             "telefone": telefone,
         })
+        setTimeout(() => {
+            window.location.href = '/aluno'
+        }, 150)
     }
 
     return (
 
         <div className='formAPI'>
-            <h1>Cadastro de alunos</h1>
+            <h1>Cadastro de Alunos</h1>
             <form onSubmit={postAPI} >
                 <input type="text" name='nome' required placeholder='Digite o nome do aluno' onChange={e => setNome(e.target.value)} />
                 <input type="text" name='turma' required placeholder='Digite sua turma' onChange={e => setTurma(e.target.value)} />
