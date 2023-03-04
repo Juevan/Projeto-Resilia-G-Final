@@ -10,12 +10,16 @@ export default function Postprofessor() {
 
 
     const postAPI = async (e) => {
+        e.preventDefault();
         await axios.post('http://localhost:3000/professor', {
             "nome": nome,
             "matricula": matricula,
             "telefone": telefone,
             "endereco": endereco
         })
+        setTimeout(() => {
+            window.location.href = '/professor';
+        }, 150)
     }
 
     return (

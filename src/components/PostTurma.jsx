@@ -9,11 +9,15 @@ export default function Postturma() {
 
 
     const postAPI = async (e) => {
+        e.preventDefault();
         await axios.post('http://localhost:3000/turma', {
             "alunos": alunos,
             "turno": turno,
             "professor": professor
         })
+        setTimeout(() => {
+            window.location.href = '/turma'
+        }, 150)
     }
 
     return (

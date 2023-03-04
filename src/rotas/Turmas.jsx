@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../../view/components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaTurma from "../components/ListaTurma.jsx";
@@ -33,23 +32,23 @@ export default function turma() {
   };
 
   const turmaIdRender = (
-    <ListaTurma
-      id={getturmaId.id}
-      alunos={getturmaId.alunos}
-      turno={getturmaId.turno}
-      professor={getturmaId.professor}
-  />);
+    <div className="listaMapId">
+      <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Turmas</button>
+      <ListaTurma
+        id={getturmaId.id}
+        alunos={getturmaId.alunos}
+        turno={getturmaId.turno}
+        professor={getturmaId.professor}
+        />
+    </div>
+  );
 
   return (
     <div>
-      <Navbar />
       <div className="listagem">
-        <h1>Turma</h1>
-        <p>Alguns dos turma que nossa instituição oferece:</p>
+        <h1>Turmas</h1>
+        <p>Turmas ativas em nossa instituição:</p>
         <div>
-          <button className="btn rota">
-            <Link to="/">Rotas</Link>
-          </button>
           <button className="btn adicionar">
             <Link to="/cadastrodeturma">Adicionar turma</Link>
           </button>

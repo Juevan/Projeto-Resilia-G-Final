@@ -6,7 +6,6 @@ export default function Rotas() {
 
     return (
         <div>
-            <Navbar/>
             <div className='rotas'>
             <h1>ENTIDADES</h1>
             <ul>

@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../../view/components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaMateria from "../components/ListaMateria.jsx";
@@ -33,26 +32,25 @@ export default function materias() {
   };
 
   const materiaIdRender = (
-    <ListaMateria
-      id={getmateriaId.id}
-      nome={getmateriaId.nome}
-      cargaHoraria={getmateriaId.cargaHoraria}
-      tempos={getmateriaId.tempos}
-    />
+    <div className="listaMapId">
+      <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Matérias</button>
+      <ListaMateria
+        id={getmateriaId.id}
+        nome={getmateriaId.nome}
+        cargaHoraria={getmateriaId.cargaHoraria}
+        tempos={getmateriaId.tempos}
+      />
+    </div>
   );
 
   return (
     <div>
-      <Navbar />
       <div className="listagem">
-        <h1>Materias</h1>
-        <p>Alguns dos matérias que nossa instituição oferece:</p>
+        <h1>Matérias</h1>
+        <p>Algumas das matérias que nossa instituição oferece:</p>
         <div>
-          <button className="btn rota">
-            <Link to="/">Rotas</Link>
-          </button>
           <button className="btn adicionar">
-            <Link to="/cadastrodemateria">Adicionar materias</Link>
+            <Link to="/cadastrodemateria">Adicionar matérias</Link>
           </button>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input
