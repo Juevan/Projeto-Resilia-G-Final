@@ -18,6 +18,14 @@ export default function Postturma() {
         setTimeout(() => {
             window.location.href = '/turma'
         }, 150)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Cadastrado com Sucesso',
+            showConfirmButton: true,
+            timer: 1000
+        })
     }
 
     return (

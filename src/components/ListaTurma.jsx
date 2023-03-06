@@ -9,8 +9,28 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
         axios.delete(`http://localhost:3000/turma/${id}`);
         setTimeout(() => {
             window.location.reload(1)
-        }, 450);
+            Swal.fire(
+                'Deletado!',
+                'Cadastro de turma deletado.',
+                'successo'
+            )
+        }, 1000);
     }
+
+    const btnDelete = () => Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá desfazer essa ação!",
+        icon: 'Atenção',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+    }).then((dltturma) => {
+        if (dltturma.isConfirmed) {
+            deleteturma();
+        }
+    })
 
     const [edAlunos, setEdAlunos] = useState(alunos);
     const [edTurno, setEdTurno] = useState(turno);
@@ -67,7 +87,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deleteturma}>Excluir</button>
+                    <button className='btn remover' onClick={btnDelete}>Excluir</button>
                 </div>
             </div>
         </div>

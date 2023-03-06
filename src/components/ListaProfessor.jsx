@@ -9,8 +9,28 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
         axios.delete(`http://localhost:3000/professor/${id}`);
         setTimeout(() => {
             window.location.reload(1)
-        }, 450);
+            Swal.fire(
+                'Deletado!',
+                'Cadastro de professor deletado.',
+                'successo'
+            )
+        }, 1000);
     }
+
+    const btnDelete = () => Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá desfazer essa ação!",
+        icon: 'Atenção',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+    }).then((dltaluno) => {
+        if (dltaluno.isConfirmed) {
+            deleteprofessor();
+        }
+    })
 
     const [edNome, setEdNome] = useState(nome);
     const [edMatricula, setEdMatricula] = useState(matricula);
@@ -70,7 +90,7 @@ export default function ListaProfessor({ id, nome, matricula, telefone, endereco
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deleteprofessor}>Excluir</button>
+                    <button className='btn remover' onClick={btnDelete}>Excluir</button>
                 </div>
             </div>
         </div>

@@ -19,7 +19,15 @@ export default function Postprofessor() {
         })
         setTimeout(() => {
             window.location.href = '/professor';
-        }, 150)
+        }, 1000)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Cadastrado com Sucesso',
+            showConfirmButton: true,
+            timer: 1500
+        })
     }
 
     return (
