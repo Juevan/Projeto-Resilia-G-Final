@@ -9,8 +9,28 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
         axios.delete(`http://localhost:3000/materia/${id}`);
         setTimeout(() => {
             window.location.reload(1)
-        }, 450);
+            Swal.fire(
+                'Deletado!',
+                'Cadastro de matéria deletado.',
+                'successo'
+            )
+        }, 1000);
     }
+
+    const btnDelete = () => Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá desfazer essa ação!",
+        icon: 'Atenção',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+    }).then((dltaluno) => {
+        if (dltaluno.isCorfirmed) {
+            deletemateria();
+        }
+    })
 
     const [edNome, setEdNome] = useState(nome);
     const [edCH, setEdCH] = useState(cargaHoraria);
@@ -66,7 +86,7 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deletemateria}>Excluir</button>
+                    <button className='btn remover' onClick={btnDelete}>Excluir</button>
                 </div>
             </div>
         </div>

@@ -17,7 +17,15 @@ export default function Postmateria() {
         })
         setTimeout(() => {
             window.location.href = '/materia';
-        }, 150)
+        }, 1000)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Cadastrado com Sucesso',
+            showConfirmButton: true,
+            timer: 1500
+        })
     }
 
     return (

@@ -5,12 +5,32 @@ import Modal from 'react-modal'
 
 export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, descricao }) {
 
-    const deleteCurso = () => {
+    const deletecurso = () => {
         axios.delete(`http://localhost:3000/curso/${id}`);
         setTimeout(() => {
             window.location.reload(1)
-        }, 450);
+            Swal.fire(
+                'Deletado!',
+                'Cadastro de curso deletado.',
+                'successo'
+            )
+        }, 1000);
     }
+
+    const btnDelete = () => Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá desfazer essa ação!",
+        icon: 'Atenção',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+    }).then((dltaluno) => {
+        if (dltaluno.isConfirmed) {
+            deletecurso();
+        }
+    })
 
     const [edNome, setEdNome] = useState(nome);
     const [edModulos, setEdModulos] = useState(modulos);
@@ -74,7 +94,7 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deleteCurso}>Excluir</button>
+                    <button className='btn remover' onClick={btnDelete}>Excluir</button>
                 </div>
             </div>
         </div>

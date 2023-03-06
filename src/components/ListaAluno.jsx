@@ -3,14 +3,34 @@ import { useState } from 'react';
 import '../App.css';
 import Modal from 'react-modal'
 
-export default function ListaAlunos({ id, nome, turma, media, telefone}) {
+export default function ListaAlunos({ id, nome, turma, media, telefone }) {
 
     const deletealuno = () => {
         axios.delete(`http://localhost:3000/aluno/${id}`);
         setTimeout(() => {
             window.location.reload(1)
-        }, 450);
+            Swal.fire(
+                'Deletado!',
+                'Cadastro de aluno deletado.',
+                'successo'
+            )
+        }, 1000);
     }
+
+    const btnDelete = () => Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá desfazer essa ação!",
+        icon: 'Atenção',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!',
+        cancelButtonText: 'Cancelar'
+    }).then((dltaluno) => {
+        if (dltaluno.isConfirmed) {
+            deletealuno();
+        }
+    })
 
     const [edNome, setEdNome] = useState(nome);
     const [edTurma, setEdTurma] = useState(turma);
@@ -60,17 +80,17 @@ export default function ListaAlunos({ id, nome, turma, media, telefone}) {
                         >
                             <h1>Editar {nome}</h1>
                             <form className='formEditar' onSubmit={editaraluno}>
-                                <label>Id: <input type="text" name='id' value={id} disabled onChange={e => setEdId(e.target.value)}/></label>
+                                <label>Id: <input type="text" name='id' value={id} disabled onChange={e => setEdId(e.target.value)} /></label>
                                 <label htmlFor="">Aluno: <input type="text" name='nome' required value={edNome} onChange={e => setEdNome(e.target.value)} /></label>
                                 <label htmlFor="">Turma: <input type="text" name='turma' required value={edTurma} onChange={e => setEdTurma(e.target.value)} /></label>
                                 <label htmlFor="">Média: <input type="text" name="media" required value={edMedia} onChange={e => setEdMedia(e.target.value)} /></label>
                                 <label htmlFor="">Telefone: <input type="text" name='telefone' required value={edTelefone} onChange={e => setEdTelefone(e.target.value)} /></label>
-                                <input className='btn-salvar'  type="submit" value="Salvar" />
+                                <input className='btn-salvar' type="submit" value="Salvar" />
                             </form>
                         </Modal>
                     </div>
 
-                    <button className='btn remover' onClick={deletealuno}>Excluir</button>
+                    <button className='btn remover' onClick={btnDelete}>Excluir</button>
                 </div>
             </div>
         </div>
