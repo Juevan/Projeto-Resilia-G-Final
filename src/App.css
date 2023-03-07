@@ -36,6 +36,10 @@ body {
   gap: 2.5rem;
 }
 
+.formAPI{
+  margin-top: 0;
+}
+
 .formAPI form {
   width: 20rem;
   display: flex;
@@ -617,7 +621,7 @@ textarea {
 .btn-submit {
   width: 120px;
   color: #fff;
-  font-size: 1rem;    
+  font-size: 1rem;      
   float: left;
   text-align: center;
   padding: 12px 25px;

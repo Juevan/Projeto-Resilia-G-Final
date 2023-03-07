@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaTurma from "../components/ListaTurma.jsx";
 import { useEffect, useState } from "react";
+import Modal from 'react-modal';
 
 export default function turma() {
   const [turma, setturma] = useState([]);
@@ -43,15 +44,67 @@ export default function turma() {
     </div>
   );
 
+  // MODAL PARA CADASTRO DE TURMAS 
+
+  const [modalEditar, setModalEditar] = useState(false);
+  function modalEditarOpen() {
+      setModalEditar(true);
+  }
+  function modalEditarClosed() {
+      setModalEditar(false);
+  }
+
+  const [alunos, setAlunos] = useState();
+    const [turno, setTurno] = useState();
+    const [professor, setProfessor] = useState();
+
+
+    const postAPI = async (e) => {
+        e.preventDefault();
+        await axios.post('http://localhost:3000/turma', {
+            "alunos": alunos,
+            "turno": turno,
+            "professor": professor
+        })
+        setTimeout(() => {
+            window.location.href = '/turma'
+        }, 150)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Cadastrado com Sucesso',
+            showConfirmButton: true,
+            timer: 1000
+        })
+    }
+
+  // FIM DO MODAL PARA CADASTRO DE TURMAS
+
   return (
     <div>
       <div className="listagem">
         <h1>Turmas</h1>
         <p className="pDescricao">Turmas ativas em nossa instituição:</p>
         <div>
-          <button className="btn adicionar">
-            <Link to="/cadastrodeturma">Adicionar turma</Link>
-          </button>
+        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar turmas</button>
+        <Modal
+            isOpen={modalEditar}
+            onRequestClose={modalEditarClosed}
+            contentLabel="Example Modal"
+            overlayClassName="modal-overlay"
+            className="modal-content"
+          >
+            <div className='formAPI'>
+            <h1>Cadastro de Turmas</h1>
+            <form onSubmit={postAPI} >
+                <input type="text" name='alunos' required placeholder='Digite a quantidade de alunos' onChange={e => setAlunos(e.target.value)} />
+                <input type="text" name='turno' required placeholder='Digite o turno' onChange={e => setTurno(e.target.value)} />
+                <input type="text" name="professor" required placeholder='Digite o professor da turma' onChange={e => setProfessor(e.target.value)} />
+                <input type="submit" value="Adicionar" />
+            </form>
+        </div>
+          </Modal>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input
               className="caixa-pesquisa"

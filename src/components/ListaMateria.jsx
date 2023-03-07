@@ -27,7 +27,7 @@ export default function ListaMaterias({ id, nome, cargaHoraria, tempos }) {
         confirmButtonText: 'Sim, deletar!',
         cancelButtonText: 'Cancelar'
     }).then((dltaluno) => {
-        if (dltaluno.isCorfirmed) {
+        if (dltaluno.isConfirmed) {
             deletemateria();
         }
     })
