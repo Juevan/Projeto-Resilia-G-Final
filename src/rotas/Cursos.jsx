@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaCursos from "../components/ListaCursos.jsx";
 import { useEffect, useState } from "react";
+import Modal from "react-modal";
 
 export default function Cursos() {
   const [cursos, setCursos] = useState([]);
@@ -47,15 +48,73 @@ export default function Cursos() {
     </div>
   );
 
+  // MODAL PARA REGISTRAR CURSOS
+
+  const [modalEditar, setModalEditar] = useState(false);
+  function modalEditarOpen() {
+      setModalEditar(true);
+  }
+  function modalEditarClosed() {
+      setModalEditar(false);
+  }
+
+  const [nome, setNome] = useState();
+    const [modulos, setModulos] = useState();
+    const [turmas, setTurmas] = useState();
+    const [cargaHoraria, setCargaHoraria] = useState();
+    const [descricao, setDescricao] = useState();
+
+
+    const postAPI = async (e) => {
+        e.preventDefault();
+        await axios.post('http://localhost:3000/curso', {
+            "nome": nome,
+            "modulos": modulos,
+            "qtdDeTurmas": turmas,
+            "cargaHoraria": cargaHoraria,
+            "descricao": descricao
+        })
+        setTimeout(() => {
+            window.location.href = '/cursos'
+        }, 1000)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Cadastrado com Sucesso',
+            showConfirmButton: true,
+            timer: 1500
+        })
+    }
+
+  // FIM DO MODAL PARA REGISTRO DE CURSOS
+
   return (
     <div>
       <div className="listagem">
         <h1>Cursos</h1>
         <p className="pDescricao">Alguns dos cursos que nossa instituição oferece:</p>
         <div>
-          <button className="btn adicionar">
-            <Link to="/cadastrodecurso">Adicionar cursos</Link>
-          </button>
+          <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar cursos</button>
+          <Modal
+            isOpen={modalEditar}
+            onRequestClose={modalEditarClosed}
+            contentLabel="Example Modal"
+            overlayClassName="modal-overlay"
+            className="modal-content"
+          >
+            <div className='formAPI'>
+            <h1>Cadastro de Cursos</h1>
+            <form onSubmit={postAPI} >
+                <input type="text" name='nome' required placeholder='Digite o nome do curso' onChange={e => setNome(e.target.value)} />
+                <input type="text" name='modulos' required placeholder='Digite a quantidade de modulos' onChange={e => setModulos(e.target.value)} />
+                <input type="text" name="turmas" required placeholder='Digite a quantidade de turmas' onChange={e => setTurmas(e.target.value)} />
+                <input type="text" name='cargaHoraria' required placeholder='Digite a carga horária do curso' onChange={e => setCargaHoraria(e.target.value)} />
+                <textarea name="descricao" required placeholder='Digite a descrição do curso' onChange={e => setDescricao(e.target.value)}></textarea>
+                <input type="submit" value="Adicionar" />
+            </form>
+        </div>
+          </Modal>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input
               className="caixa-pesquisa"

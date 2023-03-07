@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaMateria from "../components/ListaMateria.jsx";
 import { useEffect, useState } from "react";
+import Modal from 'react-modal';
 
 export default function materias() {
   const [materias, setmaterias] = useState([]);
@@ -43,15 +44,67 @@ export default function materias() {
     </div>
   );
 
+// MODAL PARA REGISTRO DE MATÉRIAS
+
+  const [modalEditar, setModalEditar] = useState(false);
+  function modalEditarOpen() {
+      setModalEditar(true);
+  }
+  function modalEditarClosed() {
+      setModalEditar(false);
+  }
+
+  const [nome, setNome] = useState();
+  const [cargaHoraria, setCargaHoraria] = useState();
+  const [tempos, setTempos] = useState();
+
+
+  const postAPI = async (e) => {
+      e.preventDefault();
+      await axios.post('http://localhost:3000/materia', {
+          "nome": nome,
+          "cargaHoraria": cargaHoraria,
+          "tempos": tempos
+      })
+      setTimeout(() => {
+          window.location.href = '/materia';
+      }, 1000)
+
+      Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Cadastrado com Sucesso',
+          showConfirmButton: true,
+          timer: 1500
+      })
+  }
+
+//  FIM DO MODAL PARA REGISTRAR MATÉRIAS
+
   return (
     <div>
       <div className="listagem">
         <h1>Matérias</h1>
         <p className="pDescricao">Algumas das matérias que nossa instituição oferece:</p>
         <div>
-          <button className="btn adicionar">
-            <Link to="/cadastrodemateria">Adicionar matérias</Link>
-          </button>
+        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar cursos</button>
+          <Modal
+            isOpen={modalEditar}
+            onRequestClose={modalEditarClosed}
+            contentLabel="Example Modal"
+            overlayClassName="modal-overlay"
+            className="modal-content"
+          >
+            <div className='formAPI'>
+            <h1>Cadastro de Matérias</h1>
+            <form onSubmit={postAPI} >
+                <input type="text" name='nome' required placeholder='Digite o nome do matéria' onChange={e => setNome(e.target.value)} />
+                <input type="text" name='cargaHoraria' required placeholder='Digite a carga horária do matéria' onChange={e => setCargaHoraria(e.target.value)} />
+                <input type="text" name="tempos" required placeholder='Digite quantos tempos tem a matéria' onChange={e => setTempos(e.target.value)} />
+                <input type="submit" value="Adicionar" />
+            </form>
+        </div>
+          </Modal>
           <form className="caixa-busca" action="" onSubmit={buscar}>
             <input
               className="caixa-pesquisa"
