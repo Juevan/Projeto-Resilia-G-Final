@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Rotas para as entidades */
@@ -76,11 +77,20 @@ body {
 .btnLista{
   margin-bottom: 2rem;
 }
+
+.imgErr{
+  margin-bottom: 20px;
+  width: 30px;
+  height: 30px;
+}
+.msgErro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .pError{
-  background-color: #f8d7da;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #f1aeb5;
+  font-family: 'Poppins', sans-serif;
   color: #b02a37;
   font-size: 17px;
 }
@@ -152,6 +162,7 @@ body {
   display: flex;
   justify-content: center;
   transition: all 0.7s;
+  z-index: 2;
 }
 
 .modal-content {
@@ -161,13 +172,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #a8abac
-  ;
+  background-color: rgba(168, 171, 172, 1);
   color: white;
   padding: 2rem;
   border-radius: 6px;
   border: 1px solid #fff;
   transform: translateY(2.8rem);
+  position: absolute;
 }
 
 .formEditar {
@@ -212,14 +223,14 @@ body {
   display: flex;
   padding: 1rem 2rem;
   align-items:center ;
-  
-  
-  
+  flex-wrap: wrap;
 }
+
 
 .navLinks ul{
   text-decoration: none;
   display: flex;
+ 
   
   
 }
@@ -486,10 +497,12 @@ body {
   width: 100vw;
   height: 600px;
   grid-area: carrossel;
+  display: flex;
+  justify-content: center;
 
 }
 .galeria{
-  width: 100vw;
+  width: 80vw;
   height: 600px;
   overflow: hidden;
 }
@@ -502,14 +515,15 @@ body {
 }
 @keyframes animacao{
   0%{ margin-left: 0%; }
-  20%{margin-left: 0%;}
-  25%{margin-left: -100%;}
-  40%{margin-left: -100%;}
+  10%{margin-left: 0%;}
+  20%{margin-left: -100%;}
+  30%{margin-left: -100%;}
+  40%{margin-left: -200%;}
   50%{margin-left: -200%;}
-  70%{margin-left: -200%;}
-  75%{margin-left: -300%;}
-  95%{margin-left: -300%;}
-  100%{margin-left: -400%;}
+  60%{margin-left: -300%;}
+  70%{margin-left: -300%;}
+  80%{margin-left: -400%;}
+  90%{margin-left: -400%;}
 }
 .galeria .fotos img{
   width: 20%;

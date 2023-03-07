@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaCursos from "../components/ListaCursos.jsx";
 import { useEffect, useState } from "react";
+import x from '../../view/x.png'
 import Modal from "react-modal";
 
 export default function Cursos() {
@@ -34,10 +35,18 @@ export default function Cursos() {
     });
   };
 
+  const msgErro = (
+    <div className="msgErro">
+      <img className="imgErr" src={x} alt="" />
+      <p className="pError">O número de id informado não existe!</p>
+      
+    </div>
+  )
+
   const cursoIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Cursos</button>
-      {getCursoId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaCursos
+      {getCursoId.length == 0 ? msgErro : <ListaCursos
         id={getCursoId.id}
         nome={getCursoId.nome}
         modulos={getCursoId.modulos}

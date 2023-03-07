@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaTurma from "../components/ListaTurma.jsx";
 import { useEffect, useState } from "react";
+import x from '../../view/x.png'
 import Modal from 'react-modal';
 
 export default function turma() {
@@ -32,10 +33,18 @@ export default function turma() {
     });
   };
 
+  const msgErro = (
+    <div className="msgErro">
+      <img className="imgErr" src={x} alt="" />
+      <p className="pError">O número de id informado não existe!</p>
+      
+    </div>
+  )
+
   const turmaIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Turmas</button>
-      {getturmaId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaTurma
+      {getturmaId.length == 0 ? msgErro : <ListaTurma
         id={getturmaId.id}
         alunos={getturmaId.alunos}
         turno={getturmaId.turno}
