@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaAlunos from "../components/ListaAluno";
 import { useEffect, useState } from "react";
+import x from '../../view/x.png'
 import Modal from 'react-modal';
 
 export default function alunos() {
@@ -32,11 +33,19 @@ export default function alunos() {
       setBusca(true);
     });
   };
+  
+  const msgErro = (
+    <div className="msgErro">
+      <img className="imgErr" src={x} alt="" />
+      <p className="pError">O número de id informado não existe!</p>
+      
+    </div>
+  )
 
   const alunoIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Alunos</button>
-      {getalunoId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaAlunos
+      {getalunoId.length == 0 ? msgErro : <ListaAlunos
         id={getalunoId.id}
         nome={getalunoId.nome}
         turma={getalunoId.turma}

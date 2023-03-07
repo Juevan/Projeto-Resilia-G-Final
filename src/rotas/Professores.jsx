@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ListaProfessor from "../components/ListaProfessor.jsx";
 import { useEffect, useState } from "react";
+import x from '../../view/x.png'
 import Modal from 'react-modal';
 
 export default function professors() {
@@ -33,10 +34,18 @@ export default function professors() {
     });
   };
 
+  const msgErro = (
+    <div className="msgErro">
+      <img className="imgErr" src={x} alt="" />
+      <p className="pError">O número de id informado não existe!</p>
+      
+    </div>
+  )
+
   const professorIdRender = (
     <div className="listaMapId">
       <button className="btn rota btnLista" onClick={() => setBusca(false)}>Lista de Professores</button>
-      {getprofessorId.length == 0 ? <p className="pError">O número de id informado não existe!</p> : <ListaProfessor
+      {getprofessorId.length == 0 ? msgErro : <ListaProfessor
         id={getprofessorId.id}
         nome={getprofessorId.nome}
         matricula={getprofessorId.matricula}
