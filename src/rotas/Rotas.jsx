@@ -38,8 +38,8 @@ export default function Rotas() {
                         <div class="card2">
                             <div class="cardAzul">
                                 <div class="corCard corCardAzul input-icone-form">
-                                    <div class="subtitulo"> + 10.000</div>
-						                <div class="conteudoTextual">Mais de 10 mil alunos matriculados na Escola</div>
+                                    {/* <div class="subtitulo"> + 10.000</div> */}
+						                <div class="conteudoTextual">Mais de 10 mil alunos matriculados na Escola.</div>
 					            </div>
 					            <div class="color-block-bottom">
                                     <a href="#" class="btnInfo  btn1 btn-transparent-lblue">Informações</a>
@@ -51,8 +51,8 @@ export default function Rotas() {
                         <div class="card3">
                             <div class="cardVerde">
                                 <div class="corCard corCardVerde input-icone-form">
-                                    <div class="subtitulo"> + 20</div>
-						                <div class="conteudoTextual">Mais de 20  cursos</div>
+                                    {/* <div class="subtitulo"> + 20</div> */}
+						                <div class="conteudoTextual">Mais de 20  cursos, para você ingressar na área de tecnologia.</div>
 					            </div>
 					            <div class="color-block-bottom">
                                     <a href="#" class="btnInfo  btn1 btn-transparent-lblue">Informações</a>
@@ -63,8 +63,8 @@ export default function Rotas() {
                         <div class="card4">
                             <div class="cardRoxo">
                                 <div class="corCard corCardRoxo input-icone-form">
-                                    <div class="subtitulo"> + 1.000</div>
-						                <div class="conteudoTextual">Mais de 1 mil professores contratados </div>
+                                    {/* <div class="subtitulo"> + 1.000</div> */}
+						                <div class="conteudoTextual">Mais de 1 mil professores contratados.</div>
 					            </div>
 					            <div class="color-block-bottom">
                                     <a href="#" class="btnInfo  btn1 btn-transparent-lblue">Informações</a>

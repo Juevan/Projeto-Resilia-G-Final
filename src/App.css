@@ -558,7 +558,7 @@ body {
   margin-bottom: 150px;
 }
 .titulo_contato {
-  font-family: 'Montserrat';
+  font-family: Arial, Helvetica, sans-serif;  
   font-weight: 600;
   font-size:3em;
   color: #16466d;
@@ -672,6 +672,9 @@ textarea {
 /* -----CARDDD------- */
 .envelope-cards{
   grid-area: cards;
+  width: 88%;
+  display: flex;
+  justify-content: center;
 }
 @font-face {
   font-family: 'Monteserrat';
@@ -869,7 +872,7 @@ footer{
    }
 .colunafooter ul li a { 
   text-decoration:none; 
-  color:#ffffff; font-size:1em;
+  color:#ffffff; font-size:1.2em;
  }
 .colunafooter ul li a i { 
   font-size:0.5em;
@@ -878,14 +881,14 @@ footer{
   text-decoration:underline; 
 }
 .colunafooter .tituloFooter   { 
-	font-family:'open_sansregular'; 
-	font-size:1.3em; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1.6em; 
 	color:#ffffff; 
 	padding-bottom: 0.5em; 
 	margin-bottom:0.5em; 
 	border-bottom:1px #4ec0db solid;
 }
-.colunafooter p  { font-family:'open_sanslight'; color:#ffffff; font-size:1em; height:25px; } 
+.colunafooter p  { font-family: Arial, Helvetica, sans-serif; color:#ffffff; font-size:1.2em; height:25px; } 
 .botao{
   padding: 10px 12px;
   color: #fff;
