@@ -120,7 +120,7 @@ export default function Cursos() {
                 <input type="text" name="turmas" required placeholder='Digite a quantidade de turmas' onChange={e => setTurmas(e.target.value)} />
                 <input type="text" name='cargaHoraria' required placeholder='Digite a carga horária do curso' onChange={e => setCargaHoraria(e.target.value)} />
                 <textarea name="descricao" required placeholder='Digite a descrição do curso' onChange={e => setDescricao(e.target.value)}></textarea>
-                <input type="submit" value="Adicionar" />
+                <input id="btnPost" type="submit" value="Adicionar" />
             </form>
         </div>
           </Modal>

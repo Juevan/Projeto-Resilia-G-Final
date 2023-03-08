@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar{
+  width: 6px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: gray;
+}
+::-webkit-scrollbar-track{
+  background-color: #ffffff46;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
@@ -48,16 +58,33 @@ body {
   gap: 1rem;
 }
 
-.formAPI form input {
-  padding: .6rem;
+.formAPI form input, .formAPI form textarea{
+  padding: .8rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  outline-style: none;
+  border: none;
+}
+
+.formAPI form input::placeholder, .formAPI form textarea::placeholder{
+  font-family: monospace;
+}
+
+#btnPost{
+  background-color: #157bad;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 .formAPI form textarea {
-  padding: .6rem;
+  padding: 1.2rem;
   max-height: 12rem;
   min-height: 12rem;
   max-width: 20.1rem;
-  min-width: 20.1rem;
+  min-width: 20.1rem; 
+  
 }
 
 .listaMap {
@@ -166,15 +193,15 @@ body {
 }
 
 .modal-content {
-  width: 40rem;
-  height: 36rem;
+  /* width: 40rem;
+  height: 36rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(168, 171, 172, 1);
   color: white;
-  padding: 2rem;
+  padding: 2.4rem 6rem 2rem 6rem;
   border-radius: 6px;
   border: 1px solid #fff;
   transform: translateY(2.8rem);
@@ -187,21 +214,34 @@ body {
   width: 20.2rem;
   gap: .4rem;
   padding: 1rem;
+  margin-top: .7rem;
 }
 
 .formEditar input {
   width: 100%;
-  padding: .4rem;
+  padding: .6rem;
+  font-family: monospace;
+  outline-style: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: .2rem;
 }
 
 .formEditar textarea {
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem;
   max-height: 9rem;
   min-height: 9rem;
   max-width: 18.2rem;
   min-width: 18.2rem;
+  margin-top: .2rem;
 }
 .btn-salvar{
   cursor: pointer;
+  background-color: #157bad;
+  color: #fff;
 }
 
 /* navbar */

@@ -110,7 +110,7 @@ export default function materias() {
                 <input type="text" name='nome' required placeholder='Digite o nome do matéria' onChange={e => setNome(e.target.value)} />
                 <input type="text" name='cargaHoraria' required placeholder='Digite a carga horária do matéria' onChange={e => setCargaHoraria(e.target.value)} />
                 <input type="text" name="tempos" required placeholder='Digite quantos tempos tem a matéria' onChange={e => setTempos(e.target.value)} />
-                <input type="submit" value="Adicionar" />
+                <input id="btnPost" type="submit" value="Adicionar" />
             </form>
         </div>
           </Modal>

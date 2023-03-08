@@ -115,7 +115,7 @@ export default function alunos() {
                 <input type="text" name='turma' required placeholder='Digite sua turma' onChange={e => setTurma(e.target.value)} />
                 <input type="text" name="media" required placeholder='Digite sua média' onChange={e => setMedia(e.target.value)} />
                 <input type="text" name='telefone' required placeholder='Digite seu telefone' onChange={e => setTelefone(e.target.value)} />
-                <input type="submit" value="Adicionar" />
+                <input id="btnPost" type="submit" value="Adicionar" />
             </form>
               </div>
 

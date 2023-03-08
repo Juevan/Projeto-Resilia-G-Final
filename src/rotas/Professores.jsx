@@ -115,7 +115,7 @@ export default function professors() {
                 <input type="text" name='matricula' required placeholder='Digite sua matrícula' onChange={e => setMatricula(e.target.value)} />
                 <input type="text" name="telefone" required placeholder='Digite seu telefone' onChange={e => setTelefone(e.target.value)} />
                 <input type="text" name='endereco' required placeholder='Digite o endereço' onChange={e => setEndereco(e.target.value)} />
-                <input type="submit" value="Adicionar" />
+                <input id="btnPost" type="submit" value="Adicionar" />
             </form>
         </div>
           </Modal>
