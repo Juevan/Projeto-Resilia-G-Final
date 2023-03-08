@@ -81,7 +81,7 @@ export default function ListaCursos({ id, nome, modulos, turmas, cargaHoraria, d
                             overlayClassName="modal-overlay"
                             className="modal-content"
                         >
-                            <h1>Editar {nome}</h1>
+                            <h1>{nome}</h1>
                             <form className='formEditar' onSubmit={editarCurso}>
                                 <label>Id: <input type="text" name='id' value={id} disabled onChange={e => setEdId(e.target.value)}/></label>
                                 <label htmlFor="">Curso: <input type="text" name='nome' required value={edNome} onChange={e => setEdNome(e.target.value)} /></label>

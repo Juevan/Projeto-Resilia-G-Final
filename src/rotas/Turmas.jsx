@@ -110,7 +110,7 @@ export default function turma() {
                 <input type="text" name='alunos' required placeholder='Digite a quantidade de alunos' onChange={e => setAlunos(e.target.value)} />
                 <input type="text" name='turno' required placeholder='Digite o turno' onChange={e => setTurno(e.target.value)} />
                 <input type="text" name="professor" required placeholder='Digite o professor da turma' onChange={e => setProfessor(e.target.value)} />
-                <input type="submit" value="Adicionar" />
+                <input id="btnPost" type="submit" value="Adicionar" />
             </form>
         </div>
           </Modal>

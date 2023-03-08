@@ -76,7 +76,7 @@ export default function ListaTurma({ id, alunos, turno, professor}) {
                             overlayClassName="modal-overlay"
                             className="modal-content"
                         >
-                            <h1>Editar Turma {id}</h1>
+                            <h1>Turma {id}</h1>
                             <form className='formEditar' onSubmit={editarturma}>
                                 <label>Id: <input type="text" name='id' value={id} disabled onChange={e => setEdId(e.target.value)}/></label>
                                 <label htmlFor="">Quantidade de Alunos: <input type="text" name='alunos' required value={edAlunos} onChange={e => setEdAlunos(e.target.value)} /></label>
