@@ -1,8 +1,8 @@
 import React from 'react'
 import imagemSara from '../../view/sara1.jpg'
 import imagemVi from '../../view/Vitória.jpg'
-import imagemDi from '../../view/diego.jpg'
-import imagemA from '../../view/antonio.jpg'
+import imagemDi from '../../view/diego.jpeg'
+import imagemA from '../../view/antonio.jpeg'
 import imagemLucas from '../../view/lucas.jpeg'
 
 
