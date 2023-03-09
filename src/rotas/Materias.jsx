@@ -96,7 +96,7 @@ export default function materias() {
         <h1>Matérias</h1>
         <p className="pDescricao">Algumas das matérias que nossa instituição oferece:</p>
         <div>
-        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar cursos</button>
+        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar matéria</button>
           <Modal
             isOpen={modalEditar}
             onRequestClose={modalEditarClosed}

@@ -96,7 +96,7 @@ export default function turma() {
         <h1>Turmas</h1>
         <p className="pDescricao">Turmas ativas em nossa instituição:</p>
         <div>
-        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar turmas</button>
+        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar turma</button>
         <Modal
             isOpen={modalEditar}
             onRequestClose={modalEditarClosed}
