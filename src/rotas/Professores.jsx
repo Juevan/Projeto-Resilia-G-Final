@@ -98,9 +98,9 @@ export default function professors() {
     <div>
       <div className="listagem">
         <h1>Professores</h1>
-        <p className="pDescricao">O time de professores que fazem parte do nosso time:</p>
+        <p className="pDescricao">Professores que fazem parte do nosso time:</p>
         <div>
-        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar professores</button>
+        <button className="btn adicionar" onClick={modalEditarOpen}>Adicionar professor</button>
         <Modal
             isOpen={modalEditar}
             onRequestClose={modalEditarClosed}
